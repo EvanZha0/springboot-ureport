@@ -1,4 +1,4 @@
-package com.pangu.rep.ureport.config;
+package com.pangu.ureport.config;
 
 import com.bstek.ureport.console.UReportServlet;
 import com.bstek.ureport.definition.datasource.BuildinDatasource;

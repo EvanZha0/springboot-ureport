@@ -1,8 +1,7 @@
-package com.pangu.rep.ureport.manager;
+package com.pangu.ureport.manager;
 
-
+import com.pangu.ureport.dao.model.FileTbl;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.pangu.rep.ureport.dao.model.UreportFileTbl;
 
 /**
  * <p>
@@ -10,9 +9,9 @@ import com.pangu.rep.ureport.dao.model.UreportFileTbl;
  * </p>
  *
  * @author zhaojj
- * @since 2020-03-31
+ * @since 2020-07-15
  */
-public interface UreportFileTblManager extends IService<UreportFileTbl> {
+public interface FileTblManager extends IService<FileTbl> {
 
     /**
      * 存储报表模板文件路径
@@ -27,5 +26,4 @@ public interface UreportFileTblManager extends IService<UreportFileTbl> {
      * @param path path
      */
     void delete(String path);
-
 }

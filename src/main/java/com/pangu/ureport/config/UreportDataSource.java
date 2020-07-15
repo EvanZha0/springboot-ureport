@@ -1,7 +1,6 @@
-package com.pangu.rep.ureport.config;
+package com.pangu.ureport.config;
 
 import com.bstek.ureport.definition.datasource.BuildinDatasource;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,42 +1,43 @@
-package com.pangu.rep.ureport.dao.model;
+package com.pangu.ureport.dao.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.sql.Blob;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zhaojj
- * @since 2020-03-31
+ * @since 2020-07-15
  */
 @Data
-public class UreportFileTbl implements Serializable {
+@TableName("ureport_file_tbl")
+public class FileTbl implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 报表路径
-     */
     private String path;
 
     /**
      * 报表名称
      */
-    private String name;//改成路径存储，暂时没用到
+    private String name;
 
     /**
      * 报表内容
      */
-    private byte[] content;//改成路径存储，暂时没用到
+    private Blob content;
 
     /**
      * 租户字段

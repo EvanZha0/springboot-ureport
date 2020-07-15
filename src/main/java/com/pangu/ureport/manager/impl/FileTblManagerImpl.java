@@ -1,10 +1,9 @@
-package com.pangu.rep.ureport.manager.impl;
+package com.pangu.ureport.manager.impl;
 
-
+import com.pangu.ureport.dao.model.FileTbl;
+import com.pangu.ureport.dao.mapper.FileTblMapper;
+import com.pangu.ureport.manager.FileTblManager;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.pangu.rep.ureport.dao.mapper.UreportFileTblMapper;
-import com.pangu.rep.ureport.dao.model.UreportFileTbl;
-import com.pangu.rep.ureport.manager.UreportFileTblManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +16,14 @@ import java.util.Date;
  * </p>
  *
  * @author zhaojj
- * @since 2020-03-31
+ * @since 2020-07-15
  */
 @Slf4j
 @Service
-public class UreportFileTblManagerImpl extends ServiceImpl<UreportFileTblMapper, UreportFileTbl> implements UreportFileTblManager {
+public class FileTblManagerImpl extends ServiceImpl<FileTblMapper, FileTbl> implements FileTblManager {
 
     @Resource
-    private UreportFileTblMapper mapper;
+    private FileTblMapper mapper;
 
     @Override
     public void save(String path) {
@@ -33,7 +32,7 @@ public class UreportFileTblManagerImpl extends ServiceImpl<UreportFileTblMapper,
             return;
         }
 
-        UreportFileTbl reportMeta = new UreportFileTbl();
+        FileTbl reportMeta = new FileTbl();
         reportMeta.setPath(path);
         reportMeta.setCreateTime(new Date());
         mapper.insertSelective(reportMeta);

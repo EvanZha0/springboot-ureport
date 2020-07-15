@@ -1,4 +1,4 @@
-package com.pangu.rep;
+package com.pangu.ureport;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Slf4j
 @EnableTransactionManagement
 @EnableScheduling
-@ComponentScan(basePackages = {"com.pangu"})
-@MapperScan(basePackages = {"com.pangu.req.ureport.dao.*"})
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.pangu"})
+@MapperScan(basePackages = {"com.pangu.ureport.dao.*"})
 public class Application {
 
     public static void main(String[] args) {

@@ -1,10 +1,9 @@
-package com.pangu.rep.ureport.config;
+package com.pangu.ureport.config;
 
 import com.bstek.ureport.exception.ReportException;
 import com.bstek.ureport.provider.report.ReportFile;
 import com.bstek.ureport.provider.report.ReportProvider;
-import com.pangu.rep.ureport.dao.mapper.UreportFileTblMapper;
-import com.pangu.rep.ureport.manager.UreportFileTblManager;
+import com.pangu.ureport.manager.FileTblManager;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,9 +35,7 @@ public class DBMetaReportProvider implements ReportProvider, ApplicationContextA
 
     private final UreportConfig ureportConfig;
     @Autowired
-    private UreportFileTblMapper ureportFileMapper;
-    @Autowired
-    private UreportFileTblManager ureportFileTblManager;
+    private FileTblManager FileTblManager;
 
 
     public DBMetaReportProvider(UreportConfig ureportConfig) {
@@ -63,7 +59,7 @@ public class DBMetaReportProvider implements ReportProvider, ApplicationContextA
         try {
             Path fullPath = Paths.get(ureportConfig.getFileStoreDir(), substring(fileName));
             boolean result = Files.deleteIfExists(fullPath);
-            ureportFileTblManager.delete(fullPath.toAbsolutePath().toString());
+            FileTblManager.delete(fullPath.toAbsolutePath().toString());
             log.info("delete report file {} by path: {}", result ? "success" : "fail", fullPath);
         } catch (IOException e) {
             throw new ReportException(e);
@@ -102,7 +98,7 @@ public class DBMetaReportProvider implements ReportProvider, ApplicationContextA
         try (FileOutputStream outStream = new FileOutputStream(file)) {
             IOUtils.write(content, outStream, ENCODING);
             // 存储文件路径至数据库
-            ureportFileTblManager.save(file.getAbsolutePath());
+            FileTblManager.save(file.getAbsolutePath());
             log.info("save report file success by path: {}", file.getPath());
         } catch (Exception ex) {
             throw new ReportException(ex);

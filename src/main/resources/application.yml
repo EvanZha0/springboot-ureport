@@ -11,8 +11,8 @@ spring:
         
 # MyBatis  
 mybatis:
-  mapper-locations: classpath:com/pangu/rep/ureport/dao/mapper/*Mapper.xml
-  type-aliases-package: com.pangu.rep.ureport.dao.model
+  mapper-locations: classpath:com/pangu/ureport/dao/mapper/*Mapper.xml
+  type-aliases-package: com.pangu.ureport.dao.model
 
   
 # 日志配置
