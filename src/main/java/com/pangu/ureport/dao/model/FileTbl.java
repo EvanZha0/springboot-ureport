@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-import java.sql.Blob;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -37,7 +35,7 @@ public class FileTbl implements Serializable {
     /**
      * 报表内容
      */
-    private Blob content;
+    private byte[] content;
 
     /**
      * 租户字段

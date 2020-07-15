@@ -1,7 +1,7 @@
 package com.pangu.ureport.dao.mapper;
 
-import com.pangu.ureport.dao.model.FileTbl;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.pangu.ureport.dao.model.FileTbl;
 
 /**
  * <p>
@@ -15,8 +15,6 @@ public interface FileTblMapper extends BaseMapper<FileTbl> {
 
 
     int deleteByPrimaryKey(Long id);
-
-    int insert(FileTbl record);
 
     int insertSelective(FileTbl record);
 

@@ -27,15 +27,11 @@ public class FileTblManagerImpl extends ServiceImpl<FileTblMapper, FileTbl> impl
 
     @Override
     public void save(String path) {
-        log.info("save path: {}", path);
-        if (isExisted(path)) {
-            return;
-        }
 
         FileTbl reportMeta = new FileTbl();
         reportMeta.setPath(path);
         reportMeta.setCreateTime(new Date());
-        mapper.insertSelective(reportMeta);
+        mapper.insert(reportMeta);
     }
 
     @Override
