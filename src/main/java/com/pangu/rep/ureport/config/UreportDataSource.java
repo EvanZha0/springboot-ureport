@@ -1,24 +1,22 @@
-package indi.qiaolin.test.ureport.datasource;
+package com.pangu.rep.ureport.config;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import com.bstek.ureport.definition.datasource.BuildinDatasource;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bstek.ureport.definition.datasource.BuildinDatasource;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Ureport 数据源
- * @author qiaolin
- * @version 2018年5月9日
+ * @author zhaojj
+ * @version 2020-04-01
  *
  */
-
 @Component
 public class UreportDataSource implements BuildinDatasource {
 	private static final String NAME = "MyDataSource";

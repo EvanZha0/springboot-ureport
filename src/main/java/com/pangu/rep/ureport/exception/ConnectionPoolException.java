@@ -1,4 +1,4 @@
-package indi.qiaolin.test.ureport.exception;
+package com.pangu.rep.ureport.exception;
 
 /**
  *  连接池异常类
